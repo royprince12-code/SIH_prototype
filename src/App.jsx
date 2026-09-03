@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { Home, Globe, UserCog, Settings, ArrowLeft } from 'lucide-react';
 
 import HomeScreen from './screens/HomeScreen';
@@ -81,7 +81,7 @@ const KioskLayout = ({ children }) => {
 export default function App() {
   return (
     <SettingsProvider>
-      <BrowserRouter>
+      <HashRouter>
         <KioskLayout>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
@@ -99,7 +99,7 @@ export default function App() {
             <Route path="/admin" element={<AdminScreen />} />
           </Routes>
         </KioskLayout>
-      </BrowserRouter>
+      </HashRouter>
     </SettingsProvider>
   );
 }
