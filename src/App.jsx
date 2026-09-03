@@ -29,27 +29,42 @@ const KioskLayout = ({ children }) => {
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-brand-offwhite text-brand-dark font-serif selection:bg-brand-gold selection:text-white">
       {/* Kiosk Header */}
-      <header className="flex-none bg-brand-blue text-brand-offwhite p-6 shadow-md flex items-center justify-between">
-        <div className="flex items-center space-x-6">
-          {location.pathname !== '/' && (
-            <button onClick={() => navigate(-1)} className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-              <ArrowLeft size={28} />
-            </button>
-          )}
-          <Link to="/" className="flex items-center space-x-4">
-            <h1 className="text-3xl font-bold tracking-wider uppercase">{t('Ambedkar Digital Heritage Archive')}</h1>
-          </Link>
+      <header className="flex-none bg-brand-blue text-brand-offwhite p-4 md:p-6 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center justify-between w-full md:w-auto gap-4">
+          <div className="flex items-center gap-2 md:gap-4 flex-1">
+            {location.pathname !== '/' && (
+              <button onClick={() => navigate(-1)} className="p-2 md:p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors flex-shrink-0">
+                <ArrowLeft size={24} className="md:w-7 md:h-7" />
+              </button>
+            )}
+            <Link to="/" className="flex items-center min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-3xl font-bold tracking-wider uppercase break-words leading-tight">
+                {t('Ambedkar Digital Heritage Archive')}
+              </h1>
+            </Link>
+          </div>
+          {/* Settings/Admin icons on mobile */}
+          <div className="flex md:hidden gap-2 flex-shrink-0">
+            <Link to="/settings" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+              <Globe size={20} />
+            </Link>
+            <Link to="/admin" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+              <UserCog size={20} />
+            </Link>
+          </div>
         </div>
-        <div className="flex space-x-4">
-          <Link to="/collection" className="flex items-center space-x-2 px-5 py-3 bg-brand-gold text-brand-blue rounded-full font-bold uppercase tracking-wide hover:opacity-90">
+        <div className="flex gap-2 md:gap-4 justify-between md:justify-end w-full md:w-auto">
+          <Link to="/collection" className="flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 md:px-5 py-2 md:py-3 bg-brand-gold text-brand-blue rounded-full text-sm md:text-base font-bold uppercase tracking-wide hover:opacity-90">
             <span>{t('My Collection')} (3)</span>
           </Link>
-          <Link to="/settings" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-            <Globe size={28} />
-          </Link>
-          <Link to="/admin" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-            <UserCog size={28} />
-          </Link>
+          <div className="hidden md:flex space-x-4">
+            <Link to="/settings" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+              <Globe size={28} />
+            </Link>
+            <Link to="/admin" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+              <UserCog size={28} />
+            </Link>
+          </div>
         </div>
       </header>
 

@@ -11,14 +11,14 @@ export default function AdminScreen() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex text-gray-800 font-sans">
+    <div className="min-h-screen bg-gray-50 flex flex-col lg:flex-row text-gray-800 font-sans">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-900 text-white flex flex-col">
-        <div className="p-6 border-b border-gray-800">
-          <h1 className="text-xl font-bold leading-tight">Archive Admin</h1>
-          <p className="text-gray-400 text-sm mt-1">Staff Portal</p>
+      <div className="w-full lg:w-64 lg:h-screen bg-gray-900 text-white flex flex-col flex-shrink-0">
+        <div className="p-4 lg:p-6 border-b border-gray-800">
+          <h1 className="text-lg lg:text-xl font-bold leading-tight">Archive Admin</h1>
+          <p className="text-gray-400 text-xs lg:text-sm mt-1">Staff Portal</p>
         </div>
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className="flex-1 p-4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
           <a href="#" className="flex items-center space-x-3 bg-blue-600 text-white px-4 py-3 rounded-lg font-medium">
             <Database size={20} />
             <span>Documents</span>
@@ -41,11 +41,11 @@ export default function AdminScreen() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col h-screen overflow-hidden">
+      <div className="flex-1 flex flex-col lg:h-screen lg:overflow-hidden min-w-0">
         {/* Header */}
-        <header className="bg-white border-b border-gray-200 p-6 flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-800">Document Management</h2>
-          <div className="flex items-center space-x-4">
+        <header className="bg-white border-b border-gray-200 p-4 lg:p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <h2 className="text-xl lg:text-2xl font-bold text-gray-800">Document Management</h2>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
             <div className="relative">
               <input type="text" placeholder="Search archive..." className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64" />
               <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -58,11 +58,11 @@ export default function AdminScreen() {
         </header>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-8 flex space-x-8">
+        <div className="flex-1 overflow-y-auto p-4 lg:p-8 flex flex-col xl:flex-row gap-8">
           
           {/* Table */}
-          <div className="flex-[2] bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-            <table className="w-full text-left border-collapse">
+          <div className="flex-[2] bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden overflow-x-auto w-full">
+            <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200 text-sm uppercase tracking-wider text-gray-500">
                   <th className="p-4 font-semibold">Title</th>
@@ -107,7 +107,7 @@ export default function AdminScreen() {
                 <input type="text" className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Document title" />
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
                   <select className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">

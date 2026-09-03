@@ -27,15 +27,15 @@ export default function ConstitutionExploreScreen() {
   return (
     <div className="h-full bg-brand-offwhite p-8 overflow-y-auto">
       <div className="max-w-6xl mx-auto">
-        <header className="mb-12 text-center">
+        <header className="mb-8 md:mb-12 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl font-bold uppercase tracking-widest text-brand-blue mb-4"
+            className="text-4xl md:text-6xl font-bold uppercase tracking-widest text-brand-blue mb-2 md:mb-4"
           >
             Then <span className="text-brand-gold">&amp;</span> Now
           </motion.h1>
-          <p className="text-2xl text-brand-dark/80 italic font-serif">
+          <p className="text-lg md:text-2xl text-brand-dark/80 italic font-serif">
             Explore how India's Constitution evolved from the Constituent Assembly to the present day.
           </p>
         </header>
@@ -101,15 +101,15 @@ export default function ConstitutionExploreScreen() {
         </div>
 
         {/* AI Assistant Promo */}
-        <div className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-brand-blue flex items-center justify-between">
+        <div className="bg-white p-6 md:p-8 rounded-2xl shadow-md border-l-4 border-brand-blue flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-2xl font-bold text-brand-dark mb-2 flex items-center">
+            <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2 flex items-center">
               <Search className="mr-2 text-brand-blue" />
               AI Constitution Assistant
             </h3>
-            <p className="text-brand-dark/70">Ask complex questions about the historical context and evolution of any constitutional provision.</p>
+            <p className="text-sm md:text-base text-brand-dark/70">Ask complex questions about the historical context and evolution of any constitutional provision.</p>
           </div>
-          <Link to="/chat" className="px-6 py-3 border-2 border-brand-blue text-brand-blue rounded-xl font-bold hover:bg-brand-blue hover:text-white transition-colors whitespace-nowrap ml-4">
+          <Link to="/chat" className="px-6 py-3 border-2 border-brand-blue text-brand-blue rounded-xl font-bold hover:bg-brand-blue hover:text-white transition-colors whitespace-nowrap self-stretch md:self-auto text-center">
             Ask a Question
           </Link>
         </div>
