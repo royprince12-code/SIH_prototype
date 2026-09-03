@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-brand-blue: #0b1d3a;
+  --color-brand-gold: #c6a052;
+  --color-brand-offwhite: #f5f2eb;
+  --color-brand-dark: #121212;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-brand-offwhite);
+  color: var(--color-brand-dark);
+}
+
+.high-contrast-mode {
+  filter: contrast(1.25) grayscale(100%);
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast-mode * {
+  border-color: #ffff00 !important;
+}
+
+.high-contrast-mode img {
+  filter: contrast(1.5) grayscale(100%);
+}
