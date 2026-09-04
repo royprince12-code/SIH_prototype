@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const apiKey = import.meta.env.VITE_AI_API_KEY;
+const apiKey = import.meta.env.VITE_AI_API_KEY || '';
 const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
 
 export default function ChatScreen() {
@@ -205,7 +205,7 @@ Requirements:
       {/* Input Area */}
       <div className="p-4 md:p-8 bg-white border-t border-gray-200 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.1)] z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="flex overflow-x-auto pb-2 space-x-2 md:space-x-4 mb-3 md:mb-6 scrollbar-hide">
+          <div className="hidden md:flex overflow-x-auto pb-2 space-x-2 md:space-x-4 mb-3 md:mb-6 scrollbar-hide">
             {suggestions.map(sugg => (
               <button 
                 key={sugg} 
