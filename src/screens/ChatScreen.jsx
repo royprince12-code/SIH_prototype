@@ -140,18 +140,18 @@ Requirements:
         </div>
       )}
 
-      <div className="bg-brand-blue text-white p-8 shadow-md z-10 flex items-center space-x-4">
-        <div className="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center">
-          <img src="https://www.drbrambedkarcollege.ac.in//assets/front/images/Dr_Bhim_Rao_Ambedkar.jpg" alt="AI" className="w-14 h-14 rounded-full object-cover grayscale mix-blend-multiply opacity-50" />
+      <div className="bg-brand-blue text-white p-4 md:p-8 shadow-md z-10 flex items-center space-x-3 md:space-x-4">
+        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand-gold flex items-center justify-center shrink-0">
+          <img src="https://www.drbrambedkarcollege.ac.in//assets/front/images/Dr_Bhim_Rao_Ambedkar.jpg" alt="AI" className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover grayscale mix-blend-multiply opacity-50" />
         </div>
         <div>
-          <h2 className="text-2xl font-bold uppercase tracking-widest">AI Research Assistant</h2>
-          <p className="text-brand-gold text-lg">Trained on the Complete Works of Dr. Ambedkar</p>
+          <h2 className="text-lg md:text-2xl font-bold uppercase tracking-widest">AI Research Assistant</h2>
+          <p className="text-brand-gold text-sm md:text-lg">Trained on the Complete Works of Dr. Ambedkar</p>
         </div>
       </div>
 
       {/* Chat History */}
-      <div className="flex-1 overflow-y-auto p-8 space-y-8">
+      <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-4 md:space-y-8">
         {messages.map((msg, idx) => (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ Requirements:
             key={idx} 
             className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            <div className={`max-w-[85%] rounded-3xl p-6 text-xl shadow-md ${msg.role === 'user' ? 'bg-brand-gold text-brand-blue rounded-tr-none' : 'bg-white border-l-8 border-brand-blue rounded-tl-none'}`}>
+            <div className={`max-w-[90%] md:max-w-[85%] rounded-3xl p-4 md:p-6 text-base md:text-xl shadow-md ${msg.role === 'user' ? 'bg-brand-gold text-brand-blue rounded-tr-none' : 'bg-white border-l-8 border-brand-blue rounded-tl-none'}`}>
               {msg.image && (
                 <img src={msg.image} alt="Scanned Document" className="max-w-md w-full rounded-2xl mb-6 shadow-md border-2 border-brand-gold/20" />
               )}
@@ -203,30 +203,30 @@ Requirements:
       </div>
 
       {/* Input Area */}
-      <div className="p-8 bg-white border-t border-gray-200 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.1)] z-10">
+      <div className="p-4 md:p-8 bg-white border-t border-gray-200 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.1)] z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="flex space-x-4 mb-6">
+          <div className="flex overflow-x-auto pb-2 space-x-2 md:space-x-4 mb-3 md:mb-6 scrollbar-hide">
             {suggestions.map(sugg => (
               <button 
                 key={sugg} 
                 onClick={() => handleSend(sugg)}
-                className="px-6 py-3 bg-brand-offwhite text-brand-blue rounded-full border border-brand-gold/30 hover:bg-brand-gold hover:text-white transition-colors text-lg font-semibold"
+                className="px-4 py-2 md:px-6 md:py-3 bg-brand-offwhite text-brand-blue rounded-full border border-brand-gold/30 hover:bg-brand-gold hover:text-white transition-colors text-sm md:text-lg font-semibold whitespace-nowrap"
               >
                 {sugg}
               </button>
             ))}
           </div>
           
-          <div className="flex items-center bg-brand-offwhite rounded-full p-2 border-2 border-gray-200 focus-within:border-brand-gold">
-            <button className="p-4 text-brand-blue hover:bg-white rounded-full transition-colors">
-              <Mic size={32} />
+          <div className="flex items-center bg-brand-offwhite rounded-full p-1 md:p-2 border-2 border-gray-200 focus-within:border-brand-gold">
+            <button className="p-2 md:p-4 text-brand-blue hover:bg-white rounded-full transition-colors shrink-0">
+              <Mic className="w-6 h-6 md:w-8 md:h-8" />
             </button>
             <button 
               onClick={startCamera}
-              className="p-4 text-brand-blue hover:bg-white rounded-full transition-colors mr-2"
+              className="p-2 md:p-4 text-brand-blue hover:bg-white rounded-full transition-colors mr-1 md:mr-2 shrink-0"
               title="Scan Document"
             >
-              <Camera size={32} />
+              <Camera className="w-6 h-6 md:w-8 md:h-8" />
             </button>
             <input 
               type="text"
@@ -234,14 +234,14 @@ Requirements:
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
               placeholder="Ask a question..."
-              className="flex-1 bg-transparent px-4 text-2xl focus:outline-none placeholder:text-gray-400"
+              className="flex-1 bg-transparent px-2 md:px-4 text-lg md:text-2xl focus:outline-none placeholder:text-gray-400 min-w-0"
             />
             <button 
               onClick={() => handleSend()}
               disabled={loading}
-              className={`p-4 rounded-full transition-colors ${loading ? 'bg-gray-300 text-gray-500' : 'bg-brand-blue text-white hover:bg-brand-gold'}`}
+              className={`p-2 md:p-4 rounded-full transition-colors shrink-0 ${loading ? 'bg-gray-300 text-gray-500' : 'bg-brand-blue text-white hover:bg-brand-gold'}`}
             >
-              <Send size={32} />
+              <Send className="w-6 h-6 md:w-8 md:h-8" />
             </button>
           </div>
         </div>
